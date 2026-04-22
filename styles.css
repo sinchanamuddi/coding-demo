@@ -1,0 +1,264 @@
+:root {
+  --bg: radial-gradient(circle at 10% 20%, #5224ff 0%, #1b0f47 45%, #09051a 100%);
+  --glass: rgba(255, 255, 255, 0.14);
+  --stroke: rgba(255, 255, 255, 0.25);
+  --text: #f7f7ff;
+  --muted: #cfd1ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+}
+
+.app-shell {
+  width: min(430px, 96vw);
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+main {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.glass,
+.card {
+  background: var(--glass);
+  border: 1px solid var(--stroke);
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.topbar,
+.hero,
+.card,
+.bottom-nav {
+  padding: 0.95rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+.label {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-bottom: 0.2rem;
+}
+
+h1 {
+  font-size: 1.2rem;
+}
+
+h2 {
+  margin-top: 0.25rem;
+  font-size: 1.1rem;
+  line-height: 1.45;
+}
+
+.hero-meta {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.hero-meta span,
+.chip,
+.chip-select {
+  font-size: 0.72rem;
+  padding: 0.35rem 0.55rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  color: var(--text);
+}
+
+.chip-select {
+  max-width: 120px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.8rem;
+}
+
+.section-head p {
+  color: var(--muted);
+  font-size: 0.76rem;
+}
+
+.planner-form {
+  display: grid;
+  gap: 0.55rem;
+}
+
+label {
+  display: grid;
+  gap: 0.25rem;
+  font-size: 0.78rem;
+}
+
+input,
+select,
+button {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  padding: 0.6rem 0.65rem;
+  background: rgba(8, 4, 30, 0.45);
+  color: var(--text);
+  font: inherit;
+}
+
+button {
+  background: linear-gradient(90deg, #00c9ff, #92fe9d);
+  color: #0b1630;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-1px) scale(1.01);
+}
+
+button.ghost {
+  margin-top: 0.75rem;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--text);
+}
+
+.itinerary {
+  margin-top: 0.8rem;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.plan-day {
+  padding: 0.6rem;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  animation: fadeUp 0.45s ease both;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.grid-two {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.guide ul {
+  display: grid;
+  gap: 0.45rem;
+  padding-left: 1rem;
+  margin: 0;
+  color: #e9eaff;
+  font-size: 0.82rem;
+}
+
+.sos-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.sos-grid a,
+.book-grid div,
+.saved-card {
+  text-decoration: none;
+  color: inherit;
+  padding: 0.6rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 0.8rem;
+}
+
+.sos-grid strong {
+  display: block;
+  font-size: 1rem;
+}
+
+.tiny {
+  margin-top: 0.45rem;
+  color: var(--muted);
+  font-size: 0.72rem;
+}
+
+.status {
+  min-height: 1rem;
+}
+
+.status.error {
+  color: #ffb3b3;
+}
+
+.book-grid,
+.saved {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.profile-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.55rem;
+}
+
+.bottom-nav {
+  position: sticky;
+  bottom: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.35rem;
+}
+
+.bottom-nav button {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text);
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.bottom-nav button.active {
+  background: rgba(124, 247, 207, 0.85);
+  color: #09211f;
+}
