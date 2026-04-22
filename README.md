@@ -23,7 +23,25 @@ This project now includes both:
 - `GET /api/admin/metrics` (admin only)
 - File-backed JSON persistence in `server/data.json`
 
-## Quick Run (Complete Project)
+## One-click local start (Windows / Mac / Linux)
+
+### Windows
+Double-click:
+- `scripts/start-dev.bat`
+
+### Mac
+Double-click:
+- `scripts/start-dev.command`
+
+### Linux
+Run:
+```bash
+./scripts/start-dev.sh
+```
+
+These start both backend (`:8787`) and frontend (`:5173`) automatically.
+
+## Manual Quick Run (Complete Project)
 
 ### 1) Start API
 ```bash
@@ -57,4 +75,5 @@ Deploy `dist/` to Vercel/Netlify.
 - `server/server.js` — backend API
 - `server/data.json` — lightweight DB
 - `manifest.webmanifest`, `sw.js`, `icons/` — PWA assets
+- `scripts/start-dev.bat`, `scripts/start-dev.sh`, `scripts/start-dev.command` — one-click local runners
 - `PUBLISH.md` — web + mobile publishing workflow

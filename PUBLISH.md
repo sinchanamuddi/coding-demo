@@ -2,6 +2,12 @@
 
 ## 1) Local full-stack check
 
+### One-click scripts
+- Windows: double-click `scripts/start-dev.bat`
+- Mac: double-click `scripts/start-dev.command`
+- Linux: run `./scripts/start-dev.sh`
+
+### Manual terminals
 Terminal A:
 ```bash
 npm run dev:api
