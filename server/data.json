@@ -1,0 +1,48 @@
+{
+  "users": [
+    {
+      "id": "seed-user-1",
+      "name": "Sinchana",
+      "email": "sinchana@example.com",
+      "passwordHash": "ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f",
+      "role": "admin"
+    }
+  ],
+  "sessions": [],
+  "trips": [
+    {
+      "id": "trip-1",
+      "userId": "seed-user-1",
+      "destination": "Udaipur",
+      "days": 4,
+      "budget": 42000,
+      "style": "Luxury",
+      "startDate": "2026-05-03",
+      "status": "saved"
+    }
+  ],
+  "bookings": [
+    {
+      "id": "bk-1",
+      "type": "flight",
+      "from": "BLR",
+      "to": "DEL",
+      "price": 6200,
+      "provider": "Air India"
+    },
+    {
+      "id": "bk-2",
+      "type": "hotel",
+      "city": "Jaipur",
+      "price": 4800,
+      "provider": "Taj Gateway"
+    },
+    {
+      "id": "bk-3",
+      "type": "transport",
+      "city": "Mumbai",
+      "price": 900,
+      "provider": "Metro + Cab Combo"
+    }
+  ]
+}
