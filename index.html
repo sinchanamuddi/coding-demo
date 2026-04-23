@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#1b0f47" />
+    <meta name="description" content="YatraAI is an India-first AI travel planner with smart itineraries, emergency integration, and booking-ready workflows." />
+    <title>YatraAI — India Travel Planner</title>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="icons/icon-192.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar glass">
+        <div>
+          <p class="label" id="greeting">Namaste 👋</p>
+          <h1>Sinchana</h1>
+        </div>
+        <select id="language" class="chip-select" aria-label="Select language">
+          <option value="en" selected>English</option>
+          <option value="hi">हिंदी</option>
+          <option value="kn">ಕನ್ನಡ</option>
+        </select>
+      </header>
+
+      <main>
+        <section class="hero glass">
+          <p class="label">AI-Powered India Explorer</p>
+          <h2>Plan smarter trips across India with one conversational planner.</h2>
+          <div class="hero-meta">
+            <span>₹ Budget-first recommendations</span>
+            <span>Real-time local context</span>
+            <span>Visa + transit concierge</span>
+          </div>
+          <button id="installBtn" class="ghost" hidden>Install App</button>
+        </section>
+
+        <section class="card auth">
+          <div class="section-head">
+            <h3>Account Access</h3>
+            <p>Auth + cloud sync</p>
+          </div>
+          <form id="loginForm" class="planner-form">
+            <label>
+              Mode
+              <select name="mode">
+                <option value="login" selected>Login</option>
+                <option value="register">Register</option>
+              </select>
+            </label>
+            <label>
+              Name (required for register)
+              <input type="text" name="name" placeholder="Sinchana" />
+            </label>
+            <label>
+              Email
+              <input type="email" name="email" placeholder="you@example.com" required />
+            </label>
+            <label>
+              Password
+              <input type="password" name="password" placeholder="••••••••" required />
+            </label>
+            <button type="submit">Continue</button>
+          </form>
+          <p id="authStatus" class="tiny status">Demo login: sinchana@example.com / password123</p>
+        </section>
+
+        <section class="planner card">
+          <div class="section-head">
+            <h3>AI Trip Planner</h3>
+            <p>Central planning cockpit</p>
+          </div>
+
+          <form id="plannerForm" class="planner-form">
+            <label>
+              Destination
+              <input type="text" id="destination" placeholder="Jaipur, Goa, Kerala, Bali..." required />
+            </label>
+            <label>
+              Start Date
+              <input type="date" id="startDate" required />
+            </label>
+            <label>
+              Trip Length
+              <select id="days">
+                <option value="2">2 Days</option>
+                <option value="3">3 Days</option>
+                <option value="4" selected>4 Days</option>
+                <option value="5">5 Days</option>
+                <option value="7">7 Days</option>
+              </select>
+            </label>
+            <label>
+              Budget (₹)
+              <input type="number" id="budget" value="35000" min="1000" step="500" />
+            </label>
+            <label>
+              Travel Style
+              <select id="style">
+                <option>Luxury</option>
+                <option selected>Balanced</option>
+                <option>Budget Backpacking</option>
+                <option>Family Friendly</option>
+              </select>
+            </label>
+            <button type="submit">Generate Smart Itinerary</button>
+          </form>
+
+          <p id="plannerNotice" class="tiny status"></p>
+          <div id="itinerary" class="itinerary"></div>
+        </section>
+
+        <section class="grid-two">
+          <article class="card guide">
+            <div class="section-head">
+              <h3>City & Country Guides</h3>
+              <p>India-first, global-ready</p>
+            </div>
+            <ul>
+              <li><strong>Delhi:</strong> Metro routes, old city food trails, heritage windows.</li>
+              <li><strong>Mumbai:</strong> Monsoon-safe routes, sea-link corridors, local train tips.</li>
+              <li><strong>Bengaluru:</strong> Weekend escapes, EV cabs, co-working neighborhoods.</li>
+              <li><strong>International:</strong> Visa checklist, forex alerts, SIM options.</li>
+            </ul>
+          </article>
+
+          <article class="card emergency">
+            <div class="section-head">
+              <h3>Emergency Hub</h3>
+              <p>India integrated SOS</p>
+            </div>
+            <div class="sos-grid">
+              <a href="tel:112">National Helpline <strong>112</strong></a>
+              <a href="tel:100">Police <strong>100</strong></a>
+              <a href="tel:108">Ambulance <strong>108</strong></a>
+              <a href="tel:101">Fire <strong>101</strong></a>
+            </div>
+            <p class="tiny">Production publish checklist: add map SDK for nearest hospitals and police stations.</p>
+          </article>
+        </section>
+
+        <section class="card bookings">
+          <div class="section-head">
+            <h3>Unified Bookings</h3>
+            <p>Flights · Hotels · Rail · Visa · Local transport</p>
+          </div>
+          <div class="book-grid">
+            <div>Flights: price intelligence + fare lock</div>
+            <div>Hotels: smart neighborhood matching</div>
+            <div>IRCTC + buses: intercity optimization</div>
+            <div>Visa docs: AI checklist + reminders</div>
+          </div>
+        </section>
+
+        <section class="card dashboard">
+          <div class="section-head">
+            <h3>Profile & Saved Trips</h3>
+            <p>Personalized dashboard</p>
+          </div>
+          <div class="profile-row">
+            <div>
+              <p class="label">Primary Traveler</p>
+              <h4>Sinchana</h4>
+            </div>
+            <div class="chip">Rewards Tier: Gold</div>
+          </div>
+          <div class="saved" id="savedTrips">
+            <div class="saved-card">No saved trips yet. Generate a plan and click Save Trip.</div>
+          </div>
+        </section>
+      </main>
+
+      <nav class="bottom-nav glass">
+        <button class="active">Planner</button>
+        <button>Guides</button>
+        <button>Bookings</button>
+        <button>Profile</button>
+      </nav>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
