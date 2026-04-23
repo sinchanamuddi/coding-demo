@@ -10,6 +10,7 @@ const loginForm = document.getElementById('loginForm');
 const authStatus = document.getElementById('authStatus');
 const savedTrips = document.getElementById('savedTrips');
 const plannerNotice = document.getElementById('plannerNotice');
+const navButtons = document.querySelectorAll('.bottom-nav button');
 
 let authToken = localStorage.getItem('yatraai_token') || '';
 let currentUser = JSON.parse(localStorage.getItem('yatraai_user') || 'null');
@@ -36,6 +37,23 @@ startDateInput.value = today.toISOString().split('T')[0];
 
 languageSelect.addEventListener('change', () => {
   greeting.textContent = greetings[languageSelect.value] || greetings.en;
+});
+
+function setActiveNav(targetId) {
+  navButtons.forEach((button) => {
+    button.classList.toggle('active', button.dataset.target === targetId);
+  });
+}
+
+navButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    const targetId = button.dataset.target;
+    const target = document.getElementById(targetId);
+    if (!target) return;
+
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setActiveNav(targetId);
+  });
 });
 
 function setAuthStatus(message, isError = false) {
@@ -213,6 +231,22 @@ if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/sw.js');
   });
 }
+
+const sectionObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        setActiveNav(entry.target.id);
+      }
+    });
+  },
+  { threshold: 0.35 }
+);
+
+['plannerSection', 'guidesSection', 'bookingsSection', 'profileSection'].forEach((id) => {
+  const section = document.getElementById(id);
+  if (section) sectionObserver.observe(section);
+});
 
 if (currentUser) {
   setAuthStatus(`Welcome back, ${currentUser.name}`);

@@ -72,7 +72,7 @@
           <p id="authStatus" class="tiny status">Demo login: sinchana@example.com / password123</p>
         </section>
 
-        <section class="planner card">
+        <section id="plannerSection" class="planner card">
           <div class="section-head">
             <h3>AI Trip Planner</h3>
             <p>Central planning cockpit</p>
@@ -118,7 +118,7 @@
         </section>
 
         <section class="grid-two">
-          <article class="card guide">
+          <article id="guidesSection" class="card guide">
             <div class="section-head">
               <h3>City & Country Guides</h3>
               <p>India-first, global-ready</p>
@@ -146,7 +146,7 @@
           </article>
         </section>
 
-        <section class="card bookings">
+        <section id="bookingsSection" class="card bookings">
           <div class="section-head">
             <h3>Unified Bookings</h3>
             <p>Flights · Hotels · Rail · Visa · Local transport</p>
@@ -159,7 +159,7 @@
           </div>
         </section>
 
-        <section class="card dashboard">
+        <section id="profileSection" class="card dashboard">
           <div class="section-head">
             <h3>Profile & Saved Trips</h3>
             <p>Personalized dashboard</p>
@@ -178,10 +178,10 @@
       </main>
 
       <nav class="bottom-nav glass">
-        <button class="active">Planner</button>
-        <button>Guides</button>
-        <button>Bookings</button>
-        <button>Profile</button>
+        <button class="active" data-target="plannerSection">Planner</button>
+        <button data-target="guidesSection">Guides</button>
+        <button data-target="bookingsSection">Bookings</button>
+        <button data-target="profileSection">Profile</button>
       </nav>
     </div>
 
